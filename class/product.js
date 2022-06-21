@@ -1,3 +1,4 @@
+let prix = 0;
 class Product {
     
     constructor(name, price, promotion, discount){
@@ -11,6 +12,13 @@ class Product {
     }
     afficherReduc() {
      return 'Nom du produit:' + Product.name;
+    }
+    remise(){
+        return this.discount;
+    }
+    nvPrix() {
+        prix = this.price - this.discount;
+        return prix;
     }
 };
 

@@ -19,14 +19,23 @@ let ProductArray = [Product1, Product2, Product3, Product4, Product5];
 
 for (i = 0; i< ProductArray.length; i++) {
     
-    if (ProductArray[i].reduction()=== 'oui') {
+    if (ProductArray[i].reduction()=== 'oui') 
         console.log(ProductArray[i].name)
-     };     
+    };
+     
+for (i = 0; i< ProductArray.length; i++) {
+    
+    if (ProductArray[i].remise() !== 'nom') 
+            console.log(ProductArray[i].name.price.prix);
+            nvPrix();
+    };
+
+
 // ProductArray[i].discount;
 //     // discount = discount++;
 //     console.log( ProductArray[i].reduction() )
 //         // afficherReduc()   
-};
+//};
 
 
 
