@@ -6,11 +6,40 @@ import Categorie from "/class/categorie.js";
     var Product4 = new Product ('PC Portable Gaming Asus TUF505DV-HN232T 15.6/ AMD Ryzen 7 16 Go RAM 512 Go SSD Noir', 'Ordinateurs Portables', 1499.99, 'oui', 33*1499.99/100);
     var Product5 = new Product ('PC Portable Gaming Acer Predator Triton 700 PT715-51-76D4 15.6/ Gaming Intel Core i7 32 Go RAM 256 Go SSD + 256 Go SATA Noir', 'Ordinateurs Portables', 3499.99, 'non', "non");
 
+/**
+ * Mise en page : liaison HTML/JS pour l'affichage
+ */
+// Création d'une constante pour appeler l'élément HTML 
+const productContainer = document.querySelector('.product-container');
+const template = document.querySelector('.template');
+// Création d'un variable (tableau de tous les objets 'produit')
+let ProductArray = [Product1, Product2, Product3, Product4, Product5];
+// Boucle pour afficher de manière dynamique
+ProductArray.forEach((product) => {
+    //La variable 'clone' sert à créer une ligne à partir du template pr chaque nouveau produit ** un template c'est un modèle de base pour créer une ligne ou autre
+    let clone = document.importNode(template.content, true);
+    //on selectionne toutes les balises (d'où le ALL) <td>
+    var td = clone.querySelectorAll("td");
+    // On sélectionne chaque case en lui donnant son contenu
+    td[0].textContent = product.produit;
+    // On place = product.getCategorie() pour répondre à la question de l'ex 3. C'est la méthode qui permet d'afficher la catégorie du produit directement.  
+    td[1].textContent = product.getCategorie();
+    td[2].textContent = product.price;
+    td[3].textContent = product.promotion;
+    td[4].textContent = product.discount;
+
+    if (product.reduction() === 'oui') {
+        clone.querySelector("tr").classList.add('promo-vert')
+    }
+    // On appelle notre <tbody> et on lui dit d'ajouter une ligne, ici il le fera 5 fois parce que c'est une boucle
+    productContainer.appendChild(clone);
+});
+
 //console.log(Product1.reduction());
 let i;
-let ProductArray = [Product1, Product2, Product3, Product4, Product5];
+
 // ex 3 : méthode (getCatégorie) qui crée le lien entre la catégorie et le produit
-ProductArray.forEach(product => console.log(product.getCategorie()));
+// ProductArray.forEach(product => console.log(product.getCategorie()));
 
 
 
@@ -21,10 +50,16 @@ ProductArray.forEach(product => console.log(product.getCategorie()));
 
 for (i = 0; i< ProductArray.length; i++) {
     
-    if (ProductArray[i].reduction()=== 'oui') 
-        console.log(ProductArray[i].name)
+    if (ProductArray[i].reduction()=== 'oui') {
+    //Création d'une span en js pour afficher le nom de chaque produit en promo mais elle est vide 
+        let li = document.createElement('li')
+        // on remplit la span
+        li.textContent = ProductArray[i].produit
+        //On affiche dans le HTML le produit
+        document.querySelector('.promotion').appendChild(li);
+
     };
- 
+}
     /** ex 5 */
 
 for (i = 0; i< ProductArray.length; i++) {

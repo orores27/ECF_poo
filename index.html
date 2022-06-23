@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <script type="module" src="index.js"></script>
     <title>ecf</title>
 </head>
 
 <body>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Produit</th>
@@ -18,45 +21,24 @@
                 <th scope="col">Prix</th>
                 <th scope="col">Promotion</th>
                 <th scope="col">Remise</th>
-                <th scope="col">Prix final</th>
             </tr>
         </thead>
-        <tbody class="tabprod">
-            <tr>
-                <th scope="row"></th>
-                <td id="produit"></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td id="categorie"></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td id="prix"></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td id="promo"></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td id="remise"></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td id="prixFinal"></td>
-            </tr>
+        <tbody class="product-container">
+            <template class="template">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </template>
         </tbody>
     </table>
+    <p>Les produits en promotion sont :</p>
+    <ul class="promotion"></ul>
+    
+
 </body>
 
 </html>
-<!-- <html>
-    <head>
-        <meta charset="UTF-8">
-        
-        <script type="module" src="index.js"></script>
-    </head>
-    <body>
-    </body>
-</html> -->
