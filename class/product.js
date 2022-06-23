@@ -33,8 +33,8 @@ class Product {
        return price;
     }
     appliquerPourcentage(pourcentage) {
-        price = this.price * pourcentage;
-       return price;
+        price = this.price * pourcentage/100;
+        return price;
     }
 };
 

@@ -37,7 +37,20 @@
     </table>
     <p>Les produits en promotion sont :</p>
     <ul class="promotion"></ul>
-    
+    <p>Voici les produits qui bénéficient d'une remise</p>
+    <ul class="remise"></ul>
+
+    <div class="container">
+        <p>Sélectionner un produit</p>
+        <select name="" id="select"></select>
+        <p>Prix initial : <span id="price"></span>€</p>
+        <label for="">Remise souhaitée :</label>
+        <input type="number" placeholder="Entre 0 et 100" min="0" max="100">
+        <button>Appliquer la remise</button>
+        <p>Prix final : <span id="price-with-remise"></span>€</p>
+        <p class="error"></p>
+    </div>
+
 
 </body>
 
