@@ -1,10 +1,11 @@
 let prix = 0;
 let promo = 0;
 let price = 0;
+
 class Product {
-    
     constructor(produit, name, price, promotion, discount){
         this.produit = produit;
+        // name = catégorie
         this.name = name;
         this.price = price;
         this.promotion = promotion;
@@ -16,13 +17,13 @@ class Product {
     // afficherReduc() {
     //  return 'Nom du produit:' + Product.name;
     // }
-    remise(){
+    remise() {
         return this.discount;
     }
     nvPrix() {
         prix = this.price - this.discount;
         return prix.toFixed(2);
-        console.log(prix);
+        
     }
      // ex 3
     getCategorie() {
@@ -37,12 +38,4 @@ class Product {
         return price;
     }
 };
-
-
-
-
-
-
-
-
 export default Product;

@@ -1,10 +1,10 @@
-import Product from "/class/product.js";
-import Categorie from "/class/categorie.js";
-    var Product1 = new Product('Michaël Gregorio', 'Spectacle Rodez', 43.00, 'non', 'non');
-    var Product2 = new Product('Daniel Guichard', 'Spectacle Rodez', 43.00, 'non', 43*20/100);
-    var Product3 = new Product ('Pc Portable Gaming MSI GL75 Leopard 10SFK-457FR 17.3/ Intel Core i7 16 Go RAM 256 Go SSD + 1 To SATA Noir', 'Ordinateurs Portables', 1999.99, 'oui', 20*1999.99/100);
-    var Product4 = new Product ('PC Portable Gaming Asus TUF505DV-HN232T 15.6/ AMD Ryzen 7 16 Go RAM 512 Go SSD Noir', 'Ordinateurs Portables', 1499.99, 'oui', 33*1499.99/100);
-    var Product5 = new Product ('PC Portable Gaming Acer Predator Triton 700 PT715-51-76D4 15.6/ Gaming Intel Core i7 32 Go RAM 256 Go SSD + 256 Go SATA Noir', 'Ordinateurs Portables', 3499.99, 'non', "non");
+import Product from "class/product.js";
+import Categorie from "class/categorie.js";
+    let Product1 = new Product('Michaël Gregorio', 'Spectacle Rodez', 43.00, 'non', 'non');
+    let Product2 = new Product('Daniel Guichard', 'Spectacle Rodez', 43.00, 'non', 43*20/100);
+    let Product3 = new Product ('Pc Portable Gaming MSI GL75 Leopard 10SFK-457FR 17.3/ Intel Core i7 16 Go RAM 256 Go SSD + 1 To SATA Noir', 'Ordinateurs Portables', 1999.99, 'oui', 20*1999.99/100);
+    let Product4 = new Product ('PC Portable Gaming Asus TUF505DV-HN232T 15.6/ AMD Ryzen 7 16 Go RAM 512 Go SSD Noir', 'Ordinateurs Portables', 1499.99, 'oui', 33*1499.99/100);
+    let Product5 = new Product ('PC Portable Gaming Acer Predator Triton 700 PT715-51-76D4 15.6/ Gaming Intel Core i7 32 Go RAM 256 Go SSD + 256 Go SATA Noir', 'Ordinateurs Portables', 3499.99, 'non', "non");
 
 /**
  * Mise en page : liaison HTML/JS pour l'affichage
@@ -27,14 +27,14 @@ ProductArray.forEach((product) => {
     //La variable 'clone' sert à créer une ligne à partir du template pr chaque nouveau produit ** un template c'est un modèle de base pour créer une ligne ou autre
     let clone = document.importNode(template.content, true);
     //on selectionne toutes les balises (d'où le ALL) <td>
-    var td = clone.querySelectorAll("td");
+    let td = clone.querySelectorAll("td");
     // On sélectionne chaque case en lui donnant son contenu
     td[0].textContent = product.produit;
     // On place = product.getCategorie() pour répondre à la question de l'ex 3. C'est la méthode qui permet d'afficher la catégorie du produit directement.  
     td[1].textContent = product.getCategorie();
     td[2].textContent = product.price.toFixed(2);
     td[3].textContent = product.promotion;
-    // je l'enlève et le met dans la boucle, il sera lu de la même manière 
+    // j'enlève le **td[4]** et le mets dans la boucle, il sera lu de la même manière 
     // td[4].textContent = product.discount;
 // On met les produits en promo en vert
     if (product.reduction() === 'oui') {
@@ -50,7 +50,6 @@ ProductArray.forEach((product) => {
 });
 
 //console.log(Product1.reduction());
-let i;
 
 // ex 3 : méthode (getCatégorie) qui crée le lien entre la catégorie et le produit
 // ProductArray.forEach(product => console.log(product.getCategorie()));
@@ -61,7 +60,7 @@ let i;
  * EX4
  * ProductArray.length est utilisé pour donner la longueur du tableau ou alors on utilise i<4
  */
-
+let i;
 for (i = 0; i< ProductArray.length; i++) {
     
     if (ProductArray[i].reduction()=== 'oui') {
@@ -82,10 +81,8 @@ for (i = 0; i< ProductArray.length; i++) {
     // cf ex 4
     let li = document.createElement('li') 
     // Ajout de texte en plus des données de prix, remise etc
-    li.textContent = 'Le produit ' +ProductArray[i].produit + ' d\'une valeur de '+ ProductArray[i].price + '€ coûte '+ProductArray[i].nvPrix() + '€ avec remise.'
+    li.textContent = 'Le produit ' +ProductArray[i].produit + ' d\'une valeur de '+ ProductArray[i].price + '€ coûte '+ ProductArray[i].nvPrix() + '€ avec remise.'
     document.querySelector('.remise').appendChild(li);
-
-         
     };
 }
     /** ex 6 */
