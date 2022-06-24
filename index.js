@@ -1,5 +1,5 @@
-import Product from "class/product.js";
-import Categorie from "class/categorie.js";
+import Product from "./class/product.js";
+import Categorie from "./class/categorie.js";
     let Product1 = new Product('Michaël Gregorio', 'Spectacle Rodez', 43.00, 'non', 'non');
     let Product2 = new Product('Daniel Guichard', 'Spectacle Rodez', 43.00, 'non', 43*20/100);
     let Product3 = new Product ('Pc Portable Gaming MSI GL75 Leopard 10SFK-457FR 17.3/ Intel Core i7 16 Go RAM 256 Go SSD + 1 To SATA Noir', 'Ordinateurs Portables', 1999.99, 'oui', 20*1999.99/100);
@@ -121,6 +121,7 @@ for (i = 0; i< ProductArray.length; i++) {
 
     //on fait une boucle pour afficher dans le select les produits sous forme de liste === c'est une liste d'option
     for(i = 0; i<ProductArray.length; i++) {
+        // Il est important de choisir 'option' pour le ***createElement*** sinon ça ne fonctionne pas. 
         let option = document.createElement('option')
         option.value = i
         option.textContent = ProductArray[i].produit
